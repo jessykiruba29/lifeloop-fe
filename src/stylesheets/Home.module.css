@@ -1,0 +1,512 @@
+
+.container {
+    background-color: #000;
+    color: #faf8f8;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem;
+  }
+  .container::-webkit-scrollbar-thumb {
+    background: #7e7376;
+    border-radius: 10px;
+    
+  }
+  
+
+
+  .container p {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+  
+
+  
+  
+  .posts {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 1.5rem;
+  }
+  
+
+  
+  .postContainer:hover {
+    transform: scale(1.03);
+  }
+  
+  .postImage {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    cursor: pointer;
+    background-color:#111 ;
+    border-bottom: 2px solid #222;
+  }
+  
+  .postInfoDiv {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.938);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 1.5rem;
+    
+    
+  }
+  .commentSection::-webkit-scrollbar {
+  width: 10px;
+}
+
+.commentSection::-webkit-scrollbar-track {
+  background: rgba(169, 163, 163, 0.147);
+  border-radius: 1px;
+}
+
+
+  .postInfo {
+    flex: 1 1 320px;
+    max-width: 400px;
+    margin: 1rem;
+    color: #c9c0c0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1px;
+    padding:40px;
+    background-color: #1c1c1c;
+    border-radius: 12px ;
+  }
+  
+  .postCaptionInfo {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: rgb(235, 51, 106);
+    font-family: 'Trebuchet MS', sans-serif;
+    line-height: 1.4;
+    position: fixed;
+    width: 300px;
+    margin: 0.5rem 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+  .postCaptionInfo:hover {
+    -webkit-line-clamp: 3;
+  line-clamp: 3;
+    overflow: visible;
+}
+  
+  .postImageInfo {
+    width: 100%;
+    border-radius: 12px;
+    max-height: 300px;
+    object-fit:contain  ;
+  }
+  
+  .postUserInfo,
+  .tagInfo {
+    font-size: 0.9rem;
+    color: #e8e2e2;
+  }
+  .postHeaders{
+    display: flex;
+    gap:200px;
+  }
+  
+  .commentSection {
+    flex: 1 1 250px;
+    max-width: 400px;
+    background-color: #010101;
+    border-radius: 12px ;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    color: #fff;
+    overflow-y: auto;
+    max-height: 80vh;
+    overflow-x: hidden  ;
+    min-height: 70vh;
+
+  }
+  .welcomeText {
+  position: relative;
+  font-size: 1.2rem;
+  color: #fff;
+  font-weight: 600;
+  margin: 20px 0;
+  padding: 15px 25px;
+  background-color: #1a1a1a;
+  border-radius: 10px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  max-width: 300px;
+  z-index: 0;
+  overflow: hidden;
+}
+
+
+.welcomeText::before {
+  content: '';
+  position: absolute;
+  top: -3px; bottom: -3px; left: -3px; right: -3px;
+  border-radius: 12px;
+  background: linear-gradient(45deg, 
+              #f02a44, #e12041, #d12f4a, #ee094e);
+  background-size: 400% 400%;
+  animation: flameGlow 3s ease infinite;
+  z-index: -1;
+  filter: blur(6px);
+  opacity: 0.75;
+}
+
+
+.welcomeText::after {
+  content: '';
+  position: absolute;
+  top: -6px; bottom: -6px; left: -6px; right: -6px;
+  border-radius: 15px;
+  background: linear-gradient(45deg, 
+              #ed5885, hsl(346, 96%, 57%), #f8628a, #ff577f);
+  background-size: 400% 400%;
+  animation: flameGlow 3s ease infinite;
+  animation-delay: 1.5s;
+  z-index: -2;
+  filter: blur(12px);
+  opacity: 0.4;
+}
+
+@keyframes flameGlow {
+  0% {
+    background-position: 0% 50%;
+    opacity: 0.6;
+  }
+  50% {
+    background-position: 100% 50%;
+    opacity: 1;
+  }
+  100% {
+    background-position: 0% 50%;
+    opacity: 0.6;
+  }
+}
+
+  .closeButton{
+    background: transparent;
+  border: 1px solid #ff416d8b;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  font-size: 17px;
+  margin-left: 80%;
+  
+  }
+  .closeButton:hover{
+    background: rgba(255, 65, 109, 0.652);
+    box-shadow: 0 0 10px rgba(255, 65, 109, 0.262);
+  }
+  .sendButton{
+    font-size: 15px;
+    background: transparent;
+  border: 1px solid #ff416dda;
+  color: rgb(255, 255, 255);
+  padding:0 10px;
+  margin-top: 2%;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  font-weight: 500;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  height:40px;
+  width:70px;
+  justify-content: center;
+
+  }
+  .sendButton:hover{
+    background: rgba(255, 65, 109, 0.652);
+    box-shadow: 0 0 10px rgba(255, 65, 109, 0.262);
+  }
+
+  
+  .commentHeader {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: #ff2767;
+    font-weight: bold;
+  }
+
+  .stickyDiv{
+    position: sticky;
+    top: 0px;
+    display: flex;
+    gap: 10px;
+    background-color:#000000 ;
+    padding: 10px;
+  }
+  
+  .comment {
+    align-self: center;
+    padding: 0.5rem;
+    border-radius: 20px;
+    flex-wrap: wrap;
+    border: none;
+    outline: none;
+    font-size: 0.9rem;
+  }
+  .commentSection::-webkit-scrollbar-thumb {
+    background: #474646;
+    border-radius: 10px;
+    
+  }
+  
+  .commentBox {
+    background-color: #222;
+    padding: 0.7rem 1rem;
+    overflow-x: hidden;
+    border-radius: 10px;
+    margin-bottom: 0.7rem;
+  }
+  
+  .commentUserId {
+    margin-bottom: 0.3rem;
+  }
+  .commentUserId a{
+
+    font-weight: bold;
+    color: #ff416c;
+  }
+  
+  .commentText {
+    font-size: 0.9rem;
+    color: #ddd;
+  }
+
+ 
+.title {
+    height: 120px;
+    width: 98%;
+    position:absolute;
+    justify-content: center;
+  }
+  
+  .title h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: #ff416c;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, #ff416c, #ff4b2b);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: glow 2s ease-in-out infinite alternate;
+    text-align: center;
+  }
+  .likes {
+    background: transparent;
+    border: 1px solid #ff416c;
+    color: white;
+    padding: 5px 5px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width:100px;
+    font-size: 20px;
+
+}
+
+.likes:hover {
+    background: rgba(255, 65, 109, 0.652);
+    box-shadow: 0 0 10px rgba(255, 65, 109, 0.262);
+}
+
+  .profileDiv{
+
+    display: flex;
+    height: 50%;
+    width: 100%;
+    z-index: 3;
+    text-align: start;
+    justify-content: start;
+  }
+
+  .logoutDiv{
+    display: flex;
+    height: 50%;
+    width: 100%;
+    z-index: 3;
+    text-align: end;
+    justify-content: end;
+  }
+  .titleLogout{
+    display: flex;
+    width: 100%;
+    height: 150px;
+    flex-direction: row;
+  }
+  
+  
+
+
+
+
+
+
+.btn {
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid #ff416c;
+  border-radius: 20px;
+  box-sizing: border-box;
+  color: #ff416c;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 20px;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+  min-height: 60px;
+  min-width: 0;
+  outline: none;
+  padding: 6px 4px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 500ms cubic-bezier(0.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 20%;
+  will-change: transform;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: linear-gradient(135deg, 
+    rgba(255, 65, 108, 1) 0%, 
+    rgba(255, 75, 99, 0.915) 50%, 
+    rgb(196, 137, 130) 100%);
+  z-index: -1;
+  transition: width 800ms cubic-bezier(0.39, 0.58, 0.57, 1);
+  filter: blur(0px);
+  opacity: 0;
+  animation:glow 2s ease-in-out infinite alternate;;
+}
+
+.btn:hover {
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.25);
+  border-color: transparent;
+  animation: gradientFlow 2s ease-in;
+}
+
+.btn:hover::before {
+  width: 150%;
+  opacity: 1;
+  animation: pulse 1s ease infinite alternate;
+}
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 20;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.05);
+    opacity: 100;
+  }
+}
+
+@keyframes glow {
+    0% {
+      text-shadow: 0 0 10px rgba(255, 65, 108, 0.7), 0 0 20px rgba(255, 65, 108, 0.6);
+    }
+    100% {
+      text-shadow: 0 0 30px rgba(255, 65, 108, 1), 0 0 40px rgba(255, 65, 108, 0.6), 0 0 50px rgba(255, 65, 108, 0.4);
+    }
+  }
+
+
+
+.upl {
+  align-items: center;
+  background-color: #000000;
+  border-radius: 12px;
+  
+  box-sizing: border-box;
+ color: #ff416c;
+  cursor: pointer;
+  display: inline-flex;
+  flex: 1 1 auto;
+  font-family: Inter,sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  justify-content: center;
+  line-height: 1;
+  margin: 0;
+  outline: none;
+  padding: 1rem 1.2rem;
+  text-align: center;
+  text-decoration: none;
+  
+  border:0;
+  
+  
+}
+
+.upl:hover{
+    text-decoration: underline;
+}

@@ -1,0 +1,231 @@
+
+.postCaptionInfo {
+    
+    font-weight: 600;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(235, 51, 106);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    display: -webkit-box;
+   -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    overflow: hidden;
+  }
+
+  .postImage {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    cursor: pointer;
+    background-color:#111 ;
+    border-bottom: 2px solid #222;
+  }
+  .tag{
+    color: rgb(221, 216, 216);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+.postUser{
+    color:rgb(182, 174, 174);
+}
+.created{
+  font-size: 13px;
+  color:rgb(131, 131, 131)
+}
+.postContainer {
+    background-color: #111;
+    border-radius: 15px;
+    overflow: hidden;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(239, 34, 113, 0.3);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 2px solid #ff416d2d;
+    position: relative;
+    z-index: 1;
+}
+
+
+.activity {
+  display: flex;
+  
+  margin-top: 10px;
+}
+
+.postContainer button {
+  background: transparent;
+  border: 1px solid #ff416d8b;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  font-size: 17px;
+}
+
+
+
+@keyframes heartBeat {
+  0% { transform: scale(1); }
+  25% { transform: scale(1.2); }
+  50% { transform: scale(0.9); }
+  75% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+
+
+
+@keyframes buttonGlow {
+  from {
+    box-shadow: 0 0 5px rgba(255, 65, 108, 0.5);
+  }
+  to {
+    box-shadow: 0 0 15px rgba(255, 65, 108, 0.8);
+  }
+}
+
+
+
+.postContainer:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 30px rgba(199, 12, 84, 0.8);
+    animation: pulse 2s infinite alternate;
+}
+
+.postContainer:hover::before {
+    
+    transform: scale(1);
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 15px rgba(255, 65, 108, 0.6);
+    }
+    100% {
+        box-shadow: 0 0 30px rgba(255, 65, 108, 0.9), 
+                    0 0 45px rgba(255, 43, 107, 0.6);
+    }
+}
+
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 10px rgba(255, 65, 108, 0.7);
+    }
+    100% {
+        text-shadow: 0 0 20px rgba(255, 65, 108, 1), 
+                    0 0 30px rgba(255, 43, 93, 0.8);
+    }
+}
+/*.postContainer {
+    background-color: #111;
+    border-radius: 15px;
+    overflow: hidden;
+    padding: 10px;
+    box-shadow: 0 0 13px rgb(239, 34, 113);
+    transition: all 0.3s ease-in-out;
+    border:2px #1e1e1e;
+    
+  }
+  
+  .postContainer:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 30px rgb(239, 34, 113);
+    animation: glow 2s infinite alternate;
+    
+  }*/
+  
+  
+  .postInfoDiv {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color:#111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 1.5rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  .created{
+    color: white;
+  }
+  
+  .commentUserId {
+    margin-bottom: 0.3rem;
+  }
+  .commentUserId a{
+
+    font-weight: bold;
+    color: #ff416c;
+  }
+  
+  .created p {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+  
+  p{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  .postInfo {
+    flex: 1 1 320px;
+    max-width: 400px;
+    margin: 1rem;
+    color: #e0dfdf;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+  
+  .postCaptionInfo {
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+  
+  .postImageInfo {
+    width: 100%;
+    border-radius: 12px;
+    max-height: 300px;
+    object-fit:contain  ;
+  }
+  
+  .postUserInfo,
+  .tagInfo {
+    
+    color: #474545;
+  }
+  
+.activity {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.likes, .comment {
+    background: transparent;
+    border: 1px solid #ff416c;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.likes:hover, .comment:hover {
+    background: rgba(255, 65, 109, 0.652);
+    box-shadow: 0 0 10px rgba(255, 65, 109, 0.262);
+}
+
+.liked {
+    color: #ff416c;
+    animation:glow 2s;
+}
+
