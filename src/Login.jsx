@@ -85,7 +85,7 @@ function Login() {
 }
 <div className={styles.title}>
 <div className={styles.head}>LifeLoop</div>
-<div className={styles.phrase}><h3>Life's a Loop, Share Yours</h3></div>
+<div className={styles.phrase}><h3>Life's a Loop,Continue to Share Yours</h3></div>
 </div>
       <form className={styles.loginForm} onSubmit={handleSubmit}>
         <h2 className={styles.formTitle}>Login</h2>

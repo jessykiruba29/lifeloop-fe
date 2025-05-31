@@ -1,90 +1,198 @@
+.title{
+  background-color:#ea1849;
+  padding:200px;
+  
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+body{
+  margin: 0;
+}
+.head{
+  font-size: 120px;
+  
+}
+.phrase h3{
+  font-size: 30px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color:#2b2b2b
+}
 
-
-.container {
-  min-height: 100vh;
-  background: radial-gradient(circle at top left, #1a1a1a, #4e4d4d);
+.otpForm {
+  z-index: 3;
+  background-color: #171515;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #fff;
-}
-
-.signupForm {
-  background: #111;
-  border: 1px solid #2a2a2a;
-  border-radius: 20px;
-  padding: 3rem;
-  width: 100%;
-  max-width: 400px;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
-  display: flex;
   flex-direction: column;
-  gap: 2 rem;
-  transition: all 0.3s ease;
-}
-
-.signupForm:hover {
-  box-shadow: 0 0 40px rgba(255, 255, 255, 0.08);
-}
-
-.formTitle {
-  text-align: center;
-  font-size: 2rem;
-  color: #f0f0f0;
-  letter-spacing: 2px;
-}
-
-.inputGroup {
-  display: flex;
-  flex-direction: column;
-  gap: 0.9 rem;
-}
-
-.label {
-  font-size: 0.9rem;
-  margin-bottom: 10px;
-  margin-top: 10px;
-  color: #ccc;
-}
-
-.input {
-  padding: 0.75rem 1rem;
+  padding: 40px 30px;
+  gap: 20px;
   border-radius: 12px;
-  border: 1px solid #333;
-  background-color: #222;
-  color: #fff;
-  font-size: 1rem;
-  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(89, 41, 41, 0.96);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 320px;
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
 }
 
-.input:focus {
+.otpMessage {
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #ddd;
+}
+
+.otpField {
+  padding: 10px 12px;
+  border: none;
+  border-radius: 8px;
   outline: none;
-  border-color: #e24a8c;
-  box-shadow: 0 0 10px #e24a75;
+  width: 100%;
+  font-size: 16px;
+  background-color: #222222;
+  color: white;
+}
+
+.otpField::placeholder {
+  color: #888;
+}
+
+.otpResponseMessage {
+  font-size: 19px;
+  color: #ff4d4f;
+  text-align: center;
+  
 }
 
 .submitBtn {
-  background:linear-gradient(rgb(181, 16, 80),rgb(238, 58, 85)) ;
-  color: #fff;
-  padding: 0.8rem;
+  padding: 12px;
+  color: rgb(255, 255, 255);
   border: none;
-  margin-top: 10%;
-  border-radius: 14px;
-  font-weight: bold;
-  font-size: 1rem;
+  border-radius: 8px;
   cursor: pointer;
-  transition: transform 0.2s ease;
+  font-weight: bold;
+  font-size: 16px;
+  width: 100%;
+  background:linear-gradient(rgb(181, 16, 80),rgb(238, 58, 85)) ;
 }
 
 .submitBtn:hover {
   transform: scale(1.03);
 }
 
+.otpGradient{
+  background-color: #1715158a;
+  position: absolute;
+  z-index: 3;
+  height: 100vh;
+  width: 100%;
+}
+.container {
+  
+  min-height: 100vh;
+  background: radial-gradient(circle at top left, #333233, #3c3634);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+overflow: hidden;
+  font-family:Arial, Helvetica, sans-serif;
+  color: #ffffff;
+}
+
+.loginForm {
+  background: #000000f5;
+  border: 1px solid #171515;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  padding: 50px;
+  width: 100%;
+  max-width: 400px;
+  
+  box-shadow: 0 0 20px rgba(106, 102, 102, 0);
+  display: flex;
+  flex-direction: column;
+  gap:40px;
+  height:530px;
+  transition: all 0.3s ease;
+}
+
+
+.formTitle {
+  text-align: center;
+  font-size: 40px;
+  color: #f0f0f0;
+  
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.floating {
+  font-size:20px;
+  color: #ccc;
+  position:relative;
+}
+
+.input{
+  width: 100%;
+  padding: 1rem 0.75rem 0.25rem 0.75rem;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  background: transparent;
+  color: white;
+  font-size: 1rem;
+  outline: none;
+  position:relative;
+  
+  
+  
+  
+}
+.label {
+  position: absolute;
+  top: 1rem;
+  left: 0.75rem;
+  color: #ccc;
+  font-size: 1rem;
+  pointer-events: none;
+  transition: all 0.2s ease;
+}
+
+
+.input:focus + .label,
+.input:not(:placeholder-shown) + .label {
+  top: -0.6rem;         
+  left: 0.6rem;         
+  font-size: 0.75rem;   
+  color: #dee3e9;
+  background-color: #111;
+  padding: 0 0.3rem;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #111 inset !important;
+  -webkit-text-fill-color: #fff !important;
+  
+}
+
+
+
+
+
+
+
 .responseMessage {
   text-align: center;
   color: #ff2b2b;
   font-weight: 600;
+  font-size: 15px;
+  margin-top: 0.5%;
 }
 
 .homeLink {
@@ -109,7 +217,4 @@ a {
 
 a:hover {
   color: #fff;
-}
-body{
-  margin: 0;
 }
