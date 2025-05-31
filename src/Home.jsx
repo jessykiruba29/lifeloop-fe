@@ -158,7 +158,7 @@ function Home() {
       <Link to="/upload"><button className={styles.upl}>Upload</button></Link>
       <div className={styles.posts}>
 
-      {posts && posts.map((post,index)=><Post key={index} post={post} 
+      {posts && posts.slice().reverse().map((post,index)=><Post key={index} post={post} 
         likesSetter={setLikes} 
         setPosts = {setPosts}
         decoded = {decoded} 
