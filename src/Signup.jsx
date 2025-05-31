@@ -32,45 +32,70 @@ function Signup() {
 
   return (
     <div className={styles.container}>
-      <div className={styles.signupForm}>
-        <h2 className={styles.formTitle}>Sign Up</h2>
-        <form onSubmit={handleSubmit}>
-          <div className={styles.inputGroup}>
-            <label htmlFor="name" className={styles.label}>UserName:</label>
-            <input
-              type="text"
-              id="name"
-              className={styles.input}
-              onChange={(e) => setName(e.target.value)}
-              value={name}
-            />
+      
+
+      <form className={styles.loginForm} onSubmit={handleSubmit}>
+        <h2 className={styles.formTitle}>Signup</h2>
+         <div className={styles.inputGroup}>
+          <div className={styles.floating}>
+          
+          <input
+            type="text"
+            name="name"
+            id="name"
+            className={styles.input}
+            placeholder=""
+            onChange={() => setName(document.getElementById('name').value)}
+          />
+          <label htmlFor="name" className={styles.label}>
+            Name
+          </label>
           </div>
-          <div className={styles.inputGroup}>
-            <label htmlFor="email" className={styles.label}>Email:</label>
-            <input
-              type="email"
-              id="email"
-              className={styles.input}
-              onChange={(e) => setEmail(e.target.value)}
-              value={userEmail}
-            />
+        </div>
+        <div className={styles.inputGroup}>
+          <div className={styles.floating}>
+          
+          <input
+            type="email"
+            name="email"
+            id="email"
+            className={styles.input}
+            placeholder=""
+            onChange={() => setEmail(document.getElementById('email').value)}
+          />
+          <label htmlFor="email" className={styles.label}>
+            Email
+          </label>
           </div>
-          <div className={styles.inputGroup}>
-            <label htmlFor="password" className={styles.label}>Password:</label>
-            <input
-              type="password"
-              id="password"
-              className={styles.input}
-              onChange={(e) => setPassword(e.target.value)}
-              value={password}
-            />
-            
-          <input type="submit" value="Submit Now" className={styles.submitBtn} />
+        </div>
+        <div className={styles.inputGroup}>
+        <div className={styles.floating}>
+          
+          <i className="pass"></i>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder=""
+            className={styles.input}
+            onChange={() => setPassword(document.getElementById('password').value)}
+          />
+          <label htmlFor="password" className={styles.label}>
+            Password
+          </label>
           </div>
-        </form>
-        <p className="responseMessage">{res}</p>
+        </div>
+        <button type="submit" className={styles.submitBtn}>
+          Submit
+        </button>
+        <p className={styles.responseMessage}>{res?res:""}</p>
         <a href="/login" className={styles.homeLink}>Already have an account? Login here</a>
-      </div>
+      </form>
+
+      <div className={styles.title}>
+<div className={styles.head}>LifeLoop</div>
+<div className={styles.phrase}><h3>Life's a Loop, Start to Share Yours</h3></div>
+</div>
     </div>
   );
 }

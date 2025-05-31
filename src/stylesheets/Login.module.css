@@ -4,6 +4,9 @@
   
   border-radius: 20px 2px 2px 20px;
 }
+body{
+  margin: 0;
+}
 .head{
   font-size: 120px;
   
