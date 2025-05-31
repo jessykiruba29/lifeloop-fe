@@ -228,4 +228,86 @@
     color: #ff416c;
     animation:glow 2s;
 }
+@media (max-width: 768px) {
+  .postContainer {
+    padding: 0.8rem;
+    border-radius: 12px;
+  }
+
+  .postCaptionInfo {
+    font-size: 1rem;
+  }
+
+  .postImage {
+    height: 250px;
+  }
+
+  .postImageInfo {
+    max-height: 200px;
+  }
+
+  .postInfo {
+    max-width: 100%;
+    margin: 0.5rem;
+  }
+
+  .created p,
+  .created {
+    font-size: 0.9rem;
+  }
+
+  .commentUserId {
+    font-size: 0.9rem;
+  }
+
+  .tag {
+    font-size: 0.9rem;
+  }
+
+  .activity {
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 1rem;
+  }
+
+  .likes,
+  .comment {
+    width: 100%;
+    justify-content: center;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .postCaptionInfo {
+    font-size: 0.95rem;
+  }
+
+  .postImage {
+    height: 200px;
+  }
+
+  .postInfoDiv {
+    padding: 1rem;
+  }
+
+  .postInfo {
+    margin: 0.5rem 0;
+    gap: 0.6rem;
+  }
+
+  .commentUserId a {
+    font-size: 0.9rem;
+  }
+
+  .likes,
+  .comment {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+  }
+
+  .postContainer button {
+    font-size: 0.95rem;
+  }
+}
 

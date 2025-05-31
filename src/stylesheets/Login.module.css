@@ -216,3 +216,114 @@ a {
 a:hover {
   color: #fff;
 }
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .title {
+    padding: 80px 40px;
+    border-radius: 20px 20px 0 0;
+    text-align: center;
+  }
+
+  .head {
+    font-size: 60px;
+  }
+
+  .phrase h3 {
+    font-size: 18px;
+  }
+
+  .loginForm {
+    width: 100%;
+    height: auto;
+    border-radius: 0 0 20px 20px;
+  }
+
+  .formTitle {
+    font-size: 30px;
+  }
+
+  .input {
+    font-size: 1rem;
+    padding: 0.8rem 0.75rem 0.3rem;
+  }
+
+  .label {
+    font-size: 0.9rem;
+  }
+
+  .submitBtn {
+    font-size: 1rem;
+    padding: 12px;
+  }
+
+  .responseMessage {
+    font-size: 0.9rem;
+  }
+
+  .homeLink {
+    font-size: 0.9rem;
+  }
+
+  .otpForm {
+    width: 90%;
+    max-width: 340px;
+    padding: 1.5rem;
+  }
+
+  .otpMessage {
+    font-size: 0.95rem;
+  }
+
+  .otpField {
+    font-size: 1rem;
+    padding: 10px;
+  }
+
+  .otpResponseMessage {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    padding: 60px 70px;
+    padding-top:250px;
+  }
+
+  .head {
+    font-size: 42px;
+  }
+
+  .phrase h3 {
+    font-size: 16px;
+  }
+
+  .formTitle {
+    font-size: 24px;
+  }
+
+  .submitBtn {
+    font-size: 0.95rem;
+    padding: 10px;
+  }
+
+  .otpForm {
+    padding: 1rem;
+  }
+
+  .otpMessage {
+    font-size: 0.9rem;
+  }
+
+  .otpField {
+    padding: 8px;
+    font-size: 0.95rem;
+  }
+
+  .otpResponseMessage {
+    font-size: 0.9rem;
+  }
+}
