@@ -7,8 +7,6 @@ import styles from './stylesheets/Home.module.css';
 import { Link } from 'react-router-dom';
 import { configDotenv } from 'dotenv';
 import Post from './Post';
-import Widget from 'yuba-widget';
-import 'yuba-widget/src/components/widget.css';
 
 function Home() {
 
@@ -199,7 +197,6 @@ function Home() {
           </div>
       </div>
       }
-      <Widget configuration="http://localhost:5173/config.json" userEmail={decoded.name} />	
     </div>
 
     );
