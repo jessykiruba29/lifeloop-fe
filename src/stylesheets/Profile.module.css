@@ -355,4 +355,103 @@
   .commentText {
     color: #ddd;
   }
-  
+  @media (max-width: 768px) {
+  .idAndHome,
+  .idAndName {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .postHeaders {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .profileContainer {
+    padding: 0 1rem;
+  }
+
+  .postCaptionInfo {
+    position: static;
+    width: 100%;
+  }
+
+  .postInfoDiv {
+    flex-direction: column;
+    padding: 1rem;
+    overflow-y: auto;
+  }
+
+  .postImageInfo {
+    max-height: 200px;
+  }
+
+  .commentSection {
+    max-width: 100%;
+    max-height: 60vh;
+    min-height: 60vh;
+    padding: 1rem;
+  }
+
+  .closeButton {
+    margin-left: auto;
+    margin-top: 1rem;
+  }
+
+  .postInfo {
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .stickyDiv {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .sendButton {
+    justify-content: center;
+  }
+
+  .posts {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .postContainer {
+    padding: 0.5rem;
+  }
+
+  .likes {
+    width: 100%;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .followButton {
+    font-size: 16px;
+    padding: 6px 16px;
+  }
+
+  .foll {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+
+  .postCaptionInfo {
+    font-size: 16px;
+  }
+
+  .commentHeader {
+    font-size: 1rem;
+  }
+
+  .comment {
+    font-size: 0.8rem;
+  }
+
+  .likes {
+    font-size: 16px;
+  }
+}

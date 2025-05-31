@@ -510,3 +510,118 @@
 .upl:hover{
     text-decoration: underline;
 }
+
+
+@media (max-width: 600px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .titleLogout {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    gap: 1rem;
+  }
+
+  .profileDiv,
+  .logoutDiv {
+    justify-content: center;
+  }
+
+  .title h1 {
+    font-size: 2rem;
+    letter-spacing: 2px;
+  }
+
+  .welcomeText {
+    font-size: 1rem;
+    padding: 10px 20px;
+    max-width: 90%;
+  }
+
+  .btn {
+    font-size: 1rem;
+    min-height: 50px;
+    width: 80%;
+  }
+
+  .upl {
+    font-size: 1rem;
+    padding: 0.8rem 1rem;
+    width: 80%;
+  }
+
+  .posts {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .postCaptionInfo {
+    font-size: 1rem;
+    width: 100%;
+    position: static;
+  }
+
+  .postInfoDiv {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .postInfo,
+  .commentSection {
+    max-width: 100%;
+    padding: 1rem;
+    min-height: auto;
+    max-height: none;
+  }
+
+  .postImageInfo {
+    max-height: 200px;
+  }
+
+  .postHeaders {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .closeButton {
+    margin-left: auto;
+    margin-right: 0;
+    font-size: 0.9rem;
+    padding: 4px 10px;
+  }
+
+  .commentHeader {
+    font-size: 1rem;
+  }
+
+  .comment {
+    font-size: 0.85rem;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .sendButton {
+    font-size: 0.85rem;
+    height: 35px;
+    width: 60px;
+  }
+
+  .likes {
+    width: auto;
+    font-size: 1rem;
+    padding: 4px 10px;
+  }
+
+  .commentBox {
+    padding: 0.5rem;
+  }
+
+  .title {
+    position: static;
+    height: auto;
+    width: 100%;
+    text-align: center;
+  }
+}
