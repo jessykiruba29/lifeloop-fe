@@ -35,7 +35,6 @@ function Home() {
   
       // Signature
       const signature = parts[2];
-      console.log("GOT iT")
       return { header, payload, signature };
     } catch (error) {
       console.log('Error decoding token:', error.message);
@@ -48,9 +47,11 @@ function Home() {
   const handleCommentChange=(e)=>{
     if(e.target.value.length!=0){
       setComment(e.target.value);
-      
-    console.log(e.target.value);
     }
+  }
+
+  const nav = ()=>{
+    navigate(`/post/`)
   }
   
   const getPosts = async()=>{
@@ -144,7 +145,7 @@ function Home() {
     <div className={styles.container}>
       <div className={styles.titleLogout}>
         <div className={styles.profileDiv }>
-          <button className={styles.btn} onClick={()=>navigate(`/user/${decoded.name}`)} >Profile</button>
+          <button className={styles.btn} onClick={()=>{navigate(`/user/${decoded.name}`)}} >Profile</button>
         </div>
         <div className={styles.title}>  
           <h1>Lifeloop</h1>
@@ -158,7 +159,7 @@ function Home() {
       <Link to="/upload"><button className={styles.upl}>Upload</button></Link>
       <div className={styles.posts}>
 
-      {posts && posts.slice().reverse().map((post,index)=><Post key={index} post={post} 
+      {posts && posts.slice().reverse().map((post,index)=><Post  key={index} post={post} 
         likesSetter={setLikes} 
         setPosts = {setPosts}
         decoded = {decoded} 
@@ -167,36 +168,7 @@ function Home() {
       handleLike={handleLike}/>)}
       </div>
       
-      {currPost &&  
-      <div className={styles.postInfoDiv}>
-        <div className={styles.postInfo}>
-            <div className={styles.postHeaders}>
-            <p className={styles.postCaptionInfo}>{currPost.caption}</p>
-            <button className={styles.closeButton} onClick={removeCurrentUser}>close</button></div>
-            <br />
-            <img className={styles.postImageInfo} src={currPost.imageUrl}></img>
-            <p className={styles.commentUserId}>by <Link to={`/user/${currPost.userId}`}>{currPost.userId}</Link></p>
-            <p className={styles.tagInfo}>Tag: {currPost.tags}</p>
-            <br />
-            <button 
-              className={`${styles.likes} ${currPost.likes?.includes(decoded.name) ? styles.liked : ''}`}
-              onClick={() => handleLike(currPost)}
-            >
-              {currPost.likes?.includes(decoded.name) ? '♥' : '♡'} {currPost.likes?.length || 0}
-            </button>
-         </div> 
-         <div className={styles.commentSection}>
-          <div className={styles.stickyDiv}>
-                <p className={styles.commentHeader}>Comments</p>
-            <input type="text" name="comment" id="comment" className={styles.comment} onChange={handleCommentChange} />
-            <button className={styles.sendButton} onClick={handleCommentPost}>Send</button>
-            </div>
-            {comments && comments.map((comment,index)=><Comment key={index} user = {decoded.name} currPost = {currPost} comment={comment}/>
-              )}
-            <br />
-          </div>
-      </div>
-      }
+      
     </div>
 
     );
