@@ -46,7 +46,6 @@ function Profile(){
     if(e.target.value.length!=0){
       setComment(e.target.value);
       
-    console.log(e.target.value);
     }
   }
   
@@ -58,7 +57,6 @@ function Profile(){
     }
     else{  
       setPosts(result.data);
-      console.log(posts);
     }}
     catch(e){
       console.log(e);
@@ -67,8 +65,7 @@ function Profile(){
   const getUser = async(id)=>{
     try{
       const user = await axios.get(`${import.meta.env.VITE_SERVER}/app/user/${id}`);
-      setCurrUser(user.data);
-      console.log("CURENT USER  "+JSON.stringify(user.data));
+      setCurrUser(user.data[0]);
       
     }
     catch(e){
@@ -88,24 +85,20 @@ function Profile(){
     if(decoded.payload.name===id){
       setSameUser(true);
       getUser(id);
-      console.log(decoded.payload);
     }
     else{
       
       setSameUser(false);
       getUser(id);
     }
-    console.log("TRUING");
   }    
   },[]
   );
   useEffect(() => {
     if (currUser) {
-      console.log("Updated user:", currUser[0]);
   
       // Safe check
-      if (Array.isArray(currUser[0].followers)) {
-        console.log("Followers count:", currUser[0].followers.length);
+      if (Array.isArray(currUser.followers)) {
       } else {
         console.log("Followers is undefined or not an array.");
       }
@@ -117,13 +110,12 @@ function Profile(){
     try {
       const response = await axios.put(`${import.meta.env.VITE_SERVER}/app/follow`, {
         follower: decoded.name,   
-        followee: currUser[0].name,  
+        followee: currUser.name,  
       });
   
       if (response.data.updatedUser) {
         setCurrUser(response.data.updatedUser);
       }
-      window.location.reload();
     } catch (error) {
       console.error("Error toggling follow:", error);
     }
@@ -177,7 +169,6 @@ function Profile(){
   }
     
     const setPost = async()=>{
-        console.log("Trying to get profile posts");
         const post = await axios.get(`${import.meta.env.VITE_SERVER}/profile/${id}`);
         setPosts(post.data);
     }
@@ -193,14 +184,14 @@ function Profile(){
         
         {!sameUser && currUser && 
         <button className={styles.followButton} onClick={handleFollowToggle}>
-    {currUser[0].followers.includes(decoded.name) ? "Unfollow" : "Follow"}
+    {currUser.followers.includes(decoded.name) ? "Unfollow" : "Follow"}
   </button>}
   </div>
       </div>
         <div className={styles.idAndName}>
           {currUser && <>
-            <p className={styles.foll}>Followers: {Array.isArray(currUser[0]?.followers) ? currUser[0].followers.length : 0}</p>
-            <p className={styles.foll}>Following: {Array.isArray(currUser[0]?.following) ? currUser[0].following.length : 0}</p>
+            <p className={styles.foll}>Followers: {Array.isArray(currUser?.followers) ? currUser.followers.length : 0}</p>
+            <p className={styles.foll}>Following: {Array.isArray(currUser?.following) ? currUser.following.length : 0}</p>
         </>
           }
         </div>

@@ -1,6 +1,6 @@
 import styles from './stylesheets/Post.module.css';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 function Post(props){
 
@@ -10,13 +10,11 @@ function Post(props){
     const setComments = props.commentSetter;
     const setPosts = props.setPosts;
     const decoded = props.decoded;
-
+    const navigator = useNavigate();
     
     const openPost= (post)=>{
         setCurrPost(post);
-        console.log(post.comments.length);
         setComments(post.comments);
-        setLikes(post.likes.length);
       }
 
       const handleLike = async (post) => {
@@ -43,10 +41,12 @@ function Post(props){
 
 
     return(
-         <div className={styles.postContainer}>
+         <div className={styles.postContainer} >
+          <div onClick={()=>navigator(`/post/${post._id}`)}>
             <p className={styles.postCaptionInfo}>{post.caption}</p>
             <p className={styles.created}>Posted at {post.createdAt.toString().substring(0,10)}</p>
             <img className={styles.postImage} src={post.imageUrl} onClick={() => openPost(post)} alt="Post" />
+            </div>
             <p className={styles.commentUserId}>by <Link to={`/user/${post.userId}`}>{post.userId}</Link></p>
             <p className={styles.tag}>Tag: {post.tags}</p>
             <div className={styles.activity}>

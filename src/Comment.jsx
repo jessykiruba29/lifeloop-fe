@@ -11,11 +11,14 @@ function Comment({ currPost, user, comment }) {
 
   // On mount, get fresh like count from backend
   useEffect(() => {
+
     const getLike = async () => {
       try {
         const response = await axios.put(`${import.meta.env.VITE_SERVER}/upload/get`, data);
-        if (response && typeof response.data.likes === 'number') {
-          setLikes(response.data.likes);
+        if (response && Array.isArray(response.data.likes)) {
+          setLikes(response.data.likes.length);
+          if(response.data.likes.includes(user)) setLiked(true);
+          else setLiked(false)
         }
       } catch (e) {
         console.error(e);
@@ -27,11 +30,19 @@ function Comment({ currPost, user, comment }) {
   const incLike = async () => {
     try {
       const response = await axios.put(`${import.meta.env.VITE_SERVER}/upload/inc`, data);
-      if (response && typeof response.data.likes === 'number') {
+      if (response && Array.isArray(response.data.likes)) {
         const newLikes = response.data.likes;
         // If likes increased, user has liked it, else user unliked it
-        setLiked(newLikes > currLikes);
-        setLikes(newLikes);
+        if(newLikes.includes(user)){
+          setLiked(true);
+        }
+        else{
+          setLiked(false);
+        }
+        setLikes(newLikes.length);
+      }
+      else{
+        console.log("NOT AN ARRAY")
       }
     } catch (e) {
       console.error(e);
@@ -42,7 +53,7 @@ function Comment({ currPost, user, comment }) {
     <div className={styles.commentBox}>
       <p className={styles.commentUserId}>
         <Link to={`/user/${comment.userId}`}>@{comment.userId}</Link>{' '}
-        <i>{comment.createdAt.toString().substring(0, 10)}</i>
+        <i>{comment.createdAt && comment.createdAt.substring(0, 10)}</i>
       </p>
       <p className={styles.commentText}>{comment.text}</p>
 
