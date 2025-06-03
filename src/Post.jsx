@@ -41,10 +41,12 @@ function Post(props){
 
 
     return(
-         <div className={styles.postContainer} onClick={()=>navigator(`/post/${post._id}`)}>
+         <div className={styles.postContainer} >
+          <div onClick={()=>navigator(`/post/${post._id}`)}>
             <p className={styles.postCaptionInfo}>{post.caption}</p>
             <p className={styles.created}>Posted at {post.createdAt.toString().substring(0,10)}</p>
             <img className={styles.postImage} src={post.imageUrl} onClick={() => openPost(post)} alt="Post" />
+            </div>
             <p className={styles.commentUserId}>by <Link to={`/user/${post.userId}`}>{post.userId}</Link></p>
             <p className={styles.tag}>Tag: {post.tags}</p>
             <div className={styles.activity}>

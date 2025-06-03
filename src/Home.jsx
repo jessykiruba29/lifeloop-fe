@@ -113,28 +113,7 @@ function Home() {
   const removeCurrentUser = ()=>{
     setCurrPost(null);
   }
-  const handleCommentPost = async()=>{
-    let user = decoded.name;
-    let caption = currPost.caption;
-    console.log(`${user} commented "${comment}" on post "${caption}"`);
-    let res;
-    if(comment){
-     res = await axios.put(`${import.meta.env.VITE_SERVER}/upload/updateComments`,{
-      comment:comment,
-      caption:caption,
-      user:user,
-    });}
 
-    document.getElementById('comment').value='';
-    if(res){
-      setComments(res.comments);
-    }
-
-
-
-    setComment();
-    window.location.reload();
-  }
   const logout = ()=>{
     Cookies.remove('token');
     window.location.reload();

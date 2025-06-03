@@ -7,14 +7,64 @@ import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
 import styles from "./stylesheets/Home.module.css"
 
+
 //It has seperate url for each post
 function PagePost(){
 
+
+
     const navigator = useNavigate();
     const [currPost,setCurrPost] = useState();
-    const [ comments,setComments]=useState();
-      const[decoded,setDecoded]=useState({});
+      const[decoded,setDecoded]=useState();
+      const [ comment,setComment] = useState();
     let {id} = useParams();
+
+      //Typing the comment
+
+      const handleCommentChange = (e)=>{
+        setComment(e.target.value);
+      }
+
+      //Commenting on a post
+
+      const handleCommentPost = async()=>{
+        let user = decoded.name;
+        let caption = currPost.caption;
+        console.log(`${user} commented "${comment}" on post "${caption}"`);
+        let res;
+        if(comment && new String(comment).trim().length!=0){
+         res = await axios.put(`${import.meta.env.VITE_SERVER}/upload/updateComments`,{
+          comment:comment,
+          caption:caption,
+          user:user,
+        });}
+    
+        document.getElementById('comment').value='';
+        if(res){
+          setCurrPost({ ...currPost, comments: res.data.comments });
+        }
+      }
+
+    //post like
+    const handleLike = async () => {
+    try {
+      const response = await axios.put(`${import.meta.env.VITE_SERVER}/upload/updateLikes`, {
+        user: decoded.name,
+        caption: currPost.caption,
+        
+      });
+  
+      if (response.data.likes) {
+          setCurrPost({ ...currPost, likes: response.data.likes });
+      }
+      else{
+        console.log("FAILED")
+      }
+    } catch (error) {
+      console.error("Error updating like:", error);
+    }
+  };
+
 
 const decodeTokenManually = (token) => {
     try {
@@ -32,7 +82,6 @@ const decodeTokenManually = (token) => {
   
       // Signature
       const signature = parts[2];
-      console.log("GOT iT")
       return { header, payload, signature };
     } catch (error) {
       console.log('Error decoding token:', error.message);
@@ -48,7 +97,6 @@ const decodeTokenManually = (token) => {
         setDecoded(decoded.payload);}
         let p = getPost();
         setCurrPost(p);
-        setComments(p.comments);
     },[])
 
     const getPost = async()=>{
@@ -59,7 +107,7 @@ const decodeTokenManually = (token) => {
         return post.data[0];
     }
     
-    if(!currPost){
+    if(!currPost ){
         return(<div>Reloading</div>)
     }
     else{
@@ -76,7 +124,7 @@ const decodeTokenManually = (token) => {
             <br />
             <button 
               className={`${styles.likes} ${currPost.likes?.includes(decoded.name) ? styles.liked : ''}`}
-              
+              onClick={handleLike}
             >
               {currPost.likes?.includes(decoded.name) ? '♥' : '♡'} {currPost.likes?.length || 0}
             </button>
@@ -84,8 +132,8 @@ const decodeTokenManually = (token) => {
          <div className={styles.commentSection}>
           <div className={styles.stickyDiv}>
                 <p className={styles.commentHeader}>Comments</p>
-            <input type="text" name="comment" id="comment" className={styles.comment}  />
-            <button className={styles.sendButton} >Send</button>
+            <input type="text" name="comment" id="comment" className={styles.comment} onChange={handleCommentChange}  />
+            <button className={styles.sendButton} onClick={handleCommentPost} >Send</button>
             </div>
             {currPost.comments && currPost.comments.map((comment,index)=><Comment key={index} user = {decoded.name} currPost = {currPost} comment={comment}/>
               )}
